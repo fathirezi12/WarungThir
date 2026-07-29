@@ -71,14 +71,13 @@
 
     <div class="card">
         <h2>📦 Total Produk</h2>
-        <h1>0 Produk</h1>
+        <h1 id="totalProduk">0 Produk</h1>
     </div>
 
     <div class="card">
-        <button onclick="alert('Fitur segera hadir')">
-            ➕ Tambah Barang
+        <button onclick="tambahBarang()">
+    ➕ Tambah Barang
         </button>
-
         <button onclick="alert('Fitur segera hadir')">
             🧾 Transaksi Baru
         </button>
@@ -86,5 +85,42 @@
 
 </div>
 
-</body>
+<script>
+function tambahBarang() {
+
+    let nama = prompt("Nama Barang:");
+    if (!nama) return;
+
+    let harga = prompt("Harga Barang:");
+    if (!harga) return;
+
+    let stok = prompt("Stok Barang:");
+    if (!stok) return;
+
+    let produk = JSON.parse(localStorage.getItem("produk")) || [];
+
+    produk.push({
+        nama: nama,
+        harga: Number(harga),
+        stok: Number(stok)
+    });
+
+    localStorage.setItem("produk", JSON.stringify(produk));
+
+    alert("Barang berhasil ditambahkan!");
+
+    tampilProduk();
+}
+
+function tampilProduk(){
+
+    let produk = JSON.parse(localStorage.getItem("produk")) || [];
+
+    document.getElementById("totalProduk").innerHTML =
+        produk.length + " Produk";
+}
+
+window.onload = tampilProduk;
+</script></body>
 </html>
+
