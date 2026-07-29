@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasir - FATHIRPOS</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+<div class="login">
+
+<h1>🛒 Kasir</h1>
+
+<select id="produk">
+    <option>Pilih Produk</option>
+</select>
+
+<br><br>
+
+<input
+type="number"
+id="jumlah"
+placeholder="Jumlah">
+
+<button onclick="hitungTotal()">
+Hitung Total
+</button>
+
+<h2 id="total">
+Total: Rp0
+</h2>
+
+<br>
+
+<button onclick="window.location.href='dashboard.html'">
+⬅ Kembali
+</button>
+
+</div>
+
+<script src="js/kasir.js"></script>
+
+</body>
+</html>
