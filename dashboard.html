@@ -1,234 +1,245 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard FATHIRPOS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial,sans-serif;
-        }
+<title>FATHIRPOS Dashboard</title>
 
-        body{
-            background:#f3f4f6;
-        }
+<style>
 
-        header{
-    background:#16a34a;
-    color:white;
-    padding:20px;
-    text-align:center;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#222;
+}
+
+header{
+background:linear-gradient(135deg,#16a34a,#22c55e);
+color:white;
+padding:30px 20px;
+border-radius:0 0 30px 30px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
 header h1{
-    font-size:30px;
-    margin-bottom:5px;
+font-size:32px;
+margin-bottom:8px;
 }
 
 header p{
-    opacity:0.9;
-    font-size:15px;
+opacity:.9;
+font-size:15px;
 }
 
-        .container{
-            padding:20px;
-        }
+.container{
+padding:20px;
+}
 
-        .card{
-            background:white;
-            padding:20px;
-            border-radius:15px;
-            margin-bottom:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,.1);
-        }
-
-        .card h2{
-            color:#16a34a;
-            margin-bottom:10px;
-        }
-
-        button{
-            width:100%;
-            padding:15px;
-            background:#16a34a;
-            color:white;
-            border:none;
-            border-radius:10px;
-            font-size:18px;
-            margin-top:10px;
-        }
-        .stats{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-bottom:20px;
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-bottom:20px;
 }
 
 .stat-card{
-    background:white;
-    padding:18px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    text-align:center;
+background:white;
+padding:18px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-5px);
 }
 
 .stat-card h3{
-    color:#666;
-    font-size:15px;
-    margin-bottom:10px;
-}
-
-.stat-card h1{
-    color:#16a34a;
-    font-size:28px;
-}
-
-.menu-title{
-    margin:20px 0 10px;
-    font-size:18px;
-    font-weight:bold;
-}
-   .stats{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.stat-card{
-    background:white;
-    border-radius:15px;
-    padding:18px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    text-align:center;
-}
-
-.stat-card h3{
-    color:#666;
-    font-size:15px;
-    margin-bottom:8px;
+font-size:14px;
+color:#777;
+margin-bottom:10px;
 }
 
 .stat-card h2{
-    color:#16a34a;
-    font-size:26px;
-} </style>
+color:#16a34a;
+font-size:28px;
+}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.menu button{
+background:white;
+border:none;
+border-radius:20px;
+padding:25px 15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.menu button:hover{
+background:#16a34a;
+color:white;
+transform:scale(1.03);
+}
+
+.footer{
+margin-top:30px;
+text-align:center;
+color:#888;
+font-size:13px;
+padding-bottom:20px;
+}
+
+@media(max-width:600px){
+
+header h1{
+font-size:28px;
+}
+
+.menu button{
+padding:20px 10px;
+font-size:16px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>👋 Halo, Admin</h1>
+
+<h1>👋 Halo, Admin</h1>
+
 <p id="tanggal"></p>
+
 </header>
 
 <div class="container">
-    <div class="stats">
 
-    <div class="stat-card">
-        <h3>Total Produk</h3>
-        <h2 id="totalProduk">0</h2>
-    </div>
+<div class="stats">
 
-    <div class="stat-card">
-        <h3>Omzet Hari Ini</h3>
-        <h2>Rp0</h2>
-    </div>
+<div class="stat-card">
+<h3>💰 Omzet Hari Ini</h3>
+<h2 id="omzet">Rp0</h2>
+</div>
 
-    <div class="stat-card">
-        <h3>Transaksi</h3>
-        <h2>0</h2>
-    </div>
+<div class="stat-card">
+<h3>📦 Produk</h3>
+<h2 id="produk">0</h2>
+</div>
 
-    <div class="stat-card">
-        <h3>Stok Menipis</h3>
-        <h2>0</h2>
-    </div>
+<div class="stat-card">
+<h3>🧾 Transaksi</h3>
+<h2 id="transaksi">0</h2>
+</div>
 
-    </div>
+<div class="stat-card">
+<h3>⚠️ Stok Menipis</h3>
+<h2 id="stok">0</h2>
+</div>
 
-    <div class="card">
-        <h2>💰 Omzet Hari Ini</h2>
-        <h1>Rp0</h1>
-    </div>
+</div>
+<div class="menu">
 
-    <div class="card">
-        <h2>📦 Total Produk</h2>
-        <h1 id="totalProduk">0 Produk</h1>
-    </div>
-
-    <div class="card">
-        <button onclick="tambahBarang()">
-    ➕ Tambah Barang
+<button onclick="window.location.href='kasir.html'">
+🛒<br><br>Kasir
 </button>
 
 <button onclick="window.location.href='produk.html'">
-    📦 Daftar Produk
-</button>
-
-<button onclick="window.location.href='kasir.html'">
-    🧾 Kasir
+📦<br><br>Produk
 </button>
 
 <button onclick="window.location.href='laporan.html'">
-    📊 Laporan
+📊<br><br>Laporan
+</button>
+
+<button onclick="window.location.href='pelanggan.html'">
+👤<br><br>Pelanggan
 </button>
 
 <button onclick="window.location.href='pengaturan.html'">
-    ⚙️ Pengaturan
+⚙️<br><br>Pengaturan
 </button>
-    </div>
+
+<button onclick="backupData()">
+💾<br><br>Backup
+</button>
+
+</div>
+
+<div class="footer">
+FATHIRPOS Premium v1.0
+</div>
 
 </div>
 
 <script>
-function tambahBarang() {
 
-    let nama = prompt("Nama Barang:");
-    if (!nama) return;
+function loadDashboard(){
 
-    let harga = prompt("Harga Barang:");
-    if (!harga) return;
+let daftarProduk =
+JSON.parse(localStorage.getItem("produk")) || [];
 
-    let stok = prompt("Stok Barang:");
-    if (!stok) return;
+document.getElementById("produk").innerHTML =
+daftarProduk.length;
 
-    let produk = JSON.parse(localStorage.getItem("produk")) || [];
+document.getElementById("transaksi").innerHTML =
+localStorage.getItem("transaksi") || 0;
 
-    produk.push({
-        nama: nama,
-        harga: Number(harga),
-        stok: Number(stok)
-    });
+let stokMenipis = 0;
 
-    localStorage.setItem("produk", JSON.stringify(produk));
+daftarProduk.forEach(item=>{
+if(item.stok<=5){
+stokMenipis++;
+}
+});
 
-    alert("Barang berhasil ditambahkan!");
+document.getElementById("stok").innerHTML =
+stokMenipis;
 
-    tampilProduk();
 }
 
-function tampilProduk(){
+function backupData(){
 
-    let produk = JSON.parse(localStorage.getItem("produk")) || [];
+alert("Fitur Backup segera hadir 🚀");
 
-    document.getElementById("totalProduk").innerHTML =
-        produk.length + " Produk";
 }
 
-window.onload = tampilProduk;
 const hari = new Date();
 
 document.getElementById("tanggal").innerHTML =
-hari.toLocaleDateString("id-ID", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-});</script></body>
-</html>
+hari.toLocaleDateString("id-ID",{
 
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+
+});
+
+window.onload = loadDashboard;
+    document.getElementById("omzet").innerHTML =
+"Rp" + Number(localStorage.getItem("omzet") || 0)
+.toLocaleString("id-ID");
+
+</script>
+
+</body>
+</html>
