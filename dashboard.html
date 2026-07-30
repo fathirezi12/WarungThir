@@ -18,13 +18,21 @@
         }
 
         header{
-            background:#16a34a;
-            color:white;
-            padding:20px;
-            text-align:center;
-            font-size:24px;
-            font-weight:bold;
-        }
+    background:#16a34a;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+header p{
+    opacity:0.9;
+    font-size:15px;
+}
 
         .container{
             padding:20px;
@@ -59,7 +67,8 @@
 <body>
 
 <header>
-    FATHIRPOS
+    <h1>👋 Halo, Admin</h1>
+<p id="tanggal"></p>
 </header>
 
 <div class="container">
@@ -126,6 +135,14 @@ function tampilProduk(){
 }
 
 window.onload = tampilProduk;
-</script></body>
+const hari = new Date();
+
+document.getElementById("tanggal").innerHTML =
+hari.toLocaleDateString("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+});</script></body>
 </html>
 
