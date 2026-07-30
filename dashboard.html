@@ -235,6 +235,53 @@ year:"numeric"
 });
 
 window.onload = loadDashboard;
+    function exportData(){
+
+    let data = localStorage.getItem("produk");
+
+    if(!data){
+        alert("Belum ada data untuk diekspor.");
+        return;
+    }
+
+    let blob = new Blob([data], {type:"application/json"});
+    let url = URL.createObjectURL(blob);
+
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = "backup-fathirpos.json";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+function importData(){
+
+    let input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".json";
+
+    input.onchange = function(e){
+
+        let file = e.target.files[0];
+
+        let reader = new FileReader();
+
+        reader.onload = function(){
+
+            localStorage.setItem("produk", reader.result);
+
+            alert("Backup berhasil dipulihkan ✅");
+
+            loadDashboard();
+        }
+
+        reader.readAsText(file);
+
+    }
+
+    input.click();
+}
     document.getElementById("omzet").innerHTML =
 "Rp" + Number(localStorage.getItem("omzet") || 0)
 .toLocaleString("id-ID");
