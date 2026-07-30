@@ -61,7 +61,62 @@ header p{
             font-size:18px;
             margin-top:10px;
         }
-    </style>
+        .stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat-card{
+    background:white;
+    padding:18px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.stat-card h3{
+    color:#666;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.stat-card h1{
+    color:#16a34a;
+    font-size:28px;
+}
+
+.menu-title{
+    margin:20px 0 10px;
+    font-size:18px;
+    font-weight:bold;
+}
+   .stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat-card{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.stat-card h3{
+    color:#666;
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.stat-card h2{
+    color:#16a34a;
+    font-size:26px;
+} </style>
 </head>
 
 <body>
@@ -72,6 +127,29 @@ header p{
 </header>
 
 <div class="container">
+    <div class="stats">
+
+    <div class="stat-card">
+        <h3>Total Produk</h3>
+        <h2 id="totalProduk">0</h2>
+    </div>
+
+    <div class="stat-card">
+        <h3>Omzet Hari Ini</h3>
+        <h2>Rp0</h2>
+    </div>
+
+    <div class="stat-card">
+        <h3>Transaksi</h3>
+        <h2>0</h2>
+    </div>
+
+    <div class="stat-card">
+        <h3>Stok Menipis</h3>
+        <h2>0</h2>
+    </div>
+
+    </div>
 
     <div class="card">
         <h2>💰 Omzet Hari Ini</h2>
@@ -93,7 +171,15 @@ header p{
 </button>
 
 <button onclick="window.location.href='kasir.html'">
-    🧾 Transaksi Baru
+    🧾 Kasir
+</button>
+
+<button onclick="window.location.href='laporan.html'">
+    📊 Laporan
+</button>
+
+<button onclick="window.location.href='pengaturan.html'">
+    ⚙️ Pengaturan
 </button>
     </div>
 
