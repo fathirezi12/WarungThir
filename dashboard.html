@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FATHIRPOS Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FATHIRPOS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -12,279 +19,279 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f7fb;
-color:#222;
+background:#f4f6f9;
 }
 
-header{
+.header{
+
 background:linear-gradient(135deg,#16a34a,#22c55e);
+
+padding:30px 20px 90px;
+
 color:white;
-padding:30px 20px;
+
 border-radius:0 0 30px 30px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+
 }
 
-header h1{
-font-size:32px;
-margin-bottom:8px;
-}
+.header h1{
 
-header p{
-opacity:.9;
-font-size:15px;
-}
-
-.container{
-padding:20px;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-margin-bottom:20px;
-}
-
-.stat-card{
-background:white;
-padding:18px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-text-align:center;
-transition:.3s;
-}
-
-.stat-card:hover{
-transform:translateY(-5px);
-}
-
-.stat-card h3{
-font-size:14px;
-color:#777;
-margin-bottom:10px;
-}
-
-.stat-card h2{
-color:#16a34a;
 font-size:28px;
+
+margin-bottom:5px;
+
+}
+
+.header p{
+
+opacity:.9;
+
+}
+
+.content{
+
+margin-top:-60px;
+
+padding:15px;
+
+}
+
+.card{
+
+background:white;
+
+border-radius:20px;
+
+padding:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+margin-bottom:18px;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+}
+
+.stat{
+
+background:#f9fafb;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+.stat h2{
+
+color:#16a34a;
+
+font-size:26px;
+
+margin-top:8px;
+
 }
 
 .menu{
+
 display:grid;
-grid-template-columns:repeat(2,1fr);
+
+grid-template-columns:repeat(3,1fr);
+
 gap:15px;
+
+margin-top:15px;
+
 }
 
-.menu button{
+.menu a{
+
+text-decoration:none;
+
 background:white;
-border:none;
-border-radius:20px;
-padding:25px 15px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
 
-.menu button:hover{
-background:#16a34a;
-color:white;
-transform:scale(1.03);
-}
+border-radius:18px;
 
-.footer{
-margin-top:30px;
+padding:18px 10px;
+
 text-align:center;
-color:#888;
-font-size:13px;
-padding-bottom:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+color:#222;
+
+font-size:14px;
+
+font-weight:600;
+
 }
 
-@media(max-width:600px){
+.icon{
 
-header h1{
-font-size:28px;
-}
+font-size:32px;
 
-.menu button{
-padding:20px 10px;
-font-size:16px;
-}
+display:block;
+
+margin-bottom:8px;
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
+<div class="header">
 
-<h1>👋 Halo, Admin</h1>
+<h1>👋 Halo Admin</h1>
 
 <p id="tanggal"></p>
 
-</header>
+</div>
 
-<div class="container">
+<div class="content">
 
-<div class="stats">
+<div class="card">
 
-<div class="stat-card">
-<h3>💰 Omzet Hari Ini</h3>
+<div class="grid">
+
+<div class="stat">
+
+💰
+
 <h2 id="omzet">Rp0</h2>
+
+<small>Omzet</small>
+
 </div>
 
-<div class="stat-card">
-<h3>📦 Produk</h3>
+<div class="stat">
+
+📦
+
 <h2 id="produk">0</h2>
+
+<small>Produk</small>
+
 </div>
 
-<div class="stat-card">
-<h3>🧾 Transaksi</h3>
-<h2 id="transaksi">0</h2>
+<div class="stat">
+
+🧾
+
+<h2 id="trx">0</h2>
+
+<small>Transaksi</small>
+
 </div>
 
-<div class="stat-card">
-<h3>⚠️ Stok Menipis</h3>
+<div class="stat">
+
+⚠️
+
 <h2 id="stok">0</h2>
+
+<small>Stok Tipis</small>
+
 </div>
 
 </div>
+
+</div>
+<div class="card">
+
+<h3 style="margin-bottom:15px;">🚀 Menu Utama</h3>
+
 <div class="menu">
 
-<button onclick="window.location.href='kasir.html'">
-🛒<br><br>Kasir
-</button>
+<a href="kasir.html">
+<span class="icon">🛒</span>
+Kasir
+</a>
 
-<button onclick="window.location.href='produk.html'">
-📦<br><br>Produk
-</button>
+<a href="produk.html">
+<span class="icon">📦</span>
+Produk
+</a>
 
-<button onclick="window.location.href='laporan.html'">
-📊<br><br>Laporan
-</button>
+<a href="laporan.html">
+<span class="icon">📊</span>
+Laporan
+</a>
 
-<button onclick="window.location.href='pelanggan.html'">
-👤<br><br>Pelanggan
-</button>
+<a href="#">
+<span class="icon">👥</span>
+Pelanggan
+</a>
 
-<button onclick="window.location.href='pengaturan.html'">
-⚙️<br><br>Pengaturan
-</button>
+<a href="#">
+<span class="icon">⚙️</span>
+Pengaturan
+</a>
 
-<button onclick="backupData()">
-💾<br><br>Backup
-</button>
+<a href="#">
+<span class="icon">💾</span>
+Backup
+</a>
 
 </div>
 
-<div class="footer">
-FATHIRPOS Premium v1.0
+</div>
+
+<div class="card">
+
+<h3>📈 Aktivitas Hari Ini</h3>
+
+<p style="margin-top:10px;color:#666;">
+Belum ada transaksi hari ini.
+</p>
+
 </div>
 
 </div>
 
 <script>
 
-function loadDashboard(){
-
-let daftarProduk =
+const produk =
 JSON.parse(localStorage.getItem("produk")) || [];
 
 document.getElementById("produk").innerHTML =
-daftarProduk.length;
+produk.length;
 
-document.getElementById("transaksi").innerHTML =
-localStorage.getItem("transaksi") || 0;
-
-let stokMenipis = 0;
-
-daftarProduk.forEach(item=>{
-if(item.stok<=5){
-stokMenipis++;
-}
-});
+let stokTipis = produk.filter(p => p.stok <= 5).length;
 
 document.getElementById("stok").innerHTML =
-stokMenipis;
+stokTipis;
 
-}
+document.getElementById("omzet").innerHTML =
+"Rp" + Number(localStorage.getItem("omzet") || 0)
+.toLocaleString("id-ID");
 
-function backupData(){
-
-alert("Fitur Backup segera hadir 🚀");
-
-}
-
-const hari = new Date();
+document.getElementById("trx").innerHTML =
+localStorage.getItem("transaksi") || 0;
 
 document.getElementById("tanggal").innerHTML =
-hari.toLocaleDateString("id-ID",{
-
+new Date().toLocaleDateString("id-ID",{
 weekday:"long",
 day:"numeric",
 month:"long",
 year:"numeric"
-
 });
-
-window.onload = loadDashboard;
-    function exportData(){
-
-    let data = localStorage.getItem("produk");
-
-    if(!data){
-        alert("Belum ada data untuk diekspor.");
-        return;
-    }
-
-    let blob = new Blob([data], {type:"application/json"});
-    let url = URL.createObjectURL(blob);
-
-    let a = document.createElement("a");
-    a.href = url;
-    a.download = "backup-fathirpos.json";
-    a.click();
-
-    URL.revokeObjectURL(url);
-}
-
-function importData(){
-
-    let input = document.createElement("input");
-    input.type = "file";
-    input.accept = ".json";
-
-    input.onchange = function(e){
-
-        let file = e.target.files[0];
-
-        let reader = new FileReader();
-
-        reader.onload = function(){
-
-            localStorage.setItem("produk", reader.result);
-
-            alert("Backup berhasil dipulihkan ✅");
-
-            loadDashboard();
-        }
-
-        reader.readAsText(file);
-
-    }
-
-    input.click();
-}
-    document.getElementById("omzet").innerHTML =
-"Rp" + Number(localStorage.getItem("omzet") || 0)
-.toLocaleString("id-ID");
 
 </script>
 
